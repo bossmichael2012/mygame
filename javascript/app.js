@@ -27,23 +27,24 @@ function start() {
 				clearInterval(tim)
 				count = 0;
 				counter.style.margin = 'auto'
-
 				if (h1.innerHTML == number.value) {
-					msg.innerHTML = 'You won'
+					swal("Good job!", "congratulations", "success");
+
 					msg.classList.add('text-success')
 
 				} else {
-					msg.innerHTML = 'You loss. your Guess was ' + number.value
+					// msg.innerHTML = 'You loss. your Guess was ' + number.value
+					swal("You loss your Guess was " + number.value , "Try again", "error");
+
 					msg.classList.add('text-danger')
 
 				}
-
 				setTimeout(() => {
 					msg.innerHTML = ''
 					number.value = ''
 					counter.style.display = 'block'
 					h1.innerHTML = '00'
-				}, 3000)
+				}, 500)
 
 			} else {
 
@@ -54,10 +55,9 @@ function start() {
 			}
 
 		}
-
-
 	} else {
-		msg.innerHTML = 'Input your Guess'
+		swal("Input your Guess!", "Guess field can't be empty", "info");
+
 		msg.classList.add('text-danger')
 
 		setTimeout(() => {
